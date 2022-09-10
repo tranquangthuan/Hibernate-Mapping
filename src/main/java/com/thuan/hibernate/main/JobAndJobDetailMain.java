@@ -7,7 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.thuan.hibernate.entity.JobDetails;
-import com.thuan.hibernate.entity.Jobs;
+import com.thuan.hibernate.entity.Job;
 import com.thuan.hibernate.utils.HibernateUtils;
 
 public class JobAndJobDetailMain {
@@ -18,17 +18,16 @@ public class JobAndJobDetailMain {
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 
-		Jobs jobs = new Jobs("JOB001", "Job title 1", 100.0, 500.0);
-		Jobs jobs2 = new Jobs("JOB002", "Job title 2", 100.0, 500.0);
+		Job jobs = new Job("Job title 1", 100.0, 500.0);
+		Job jobs2 = new Job("Job title 2", 100.0, 500.0);
 		JobDetails details = new JobDetails("jobDescription", LocalDate.of(2022, 10, 10), jobs);
 		jobs.setJobDetail(details);
 
 		session.save(jobs);
 		session.save(jobs2);
-		
-		
+
 		session.delete(jobs);
-		//session.save(details);
+		// session.save(details);
 
 		t.commit();
 		System.out.println("successfully saved");

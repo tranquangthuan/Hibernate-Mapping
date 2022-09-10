@@ -25,9 +25,13 @@ public class JobDetails {
 
 	@OneToOne()
 	@JoinColumn(name = "job_id_from_detail", referencedColumnName = "job_id")
-	private Jobs job;
+	private Job job;
 
-	public JobDetails(String jobDescription, LocalDate activeDate, Jobs job) {
+	public JobDetails() {
+		super();
+	}
+
+	public JobDetails(String jobDescription, LocalDate activeDate, Job job) {
 		super();
 		this.jobDescription = jobDescription;
 		this.activeDate = activeDate;
@@ -58,11 +62,11 @@ public class JobDetails {
 		this.activeDate = activeDate;
 	}
 
-	public Jobs getJob() {
+	public Job getJob() {
 		return job;
 	}
 
-	public void setJob(Jobs job) {
+	public void setJob(Job job) {
 		this.job = job;
 	}
 }

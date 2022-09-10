@@ -1,3 +1,3 @@
 # Hibernate
-Hibernate query
+Hibernate Mapping
 Example with MS Server

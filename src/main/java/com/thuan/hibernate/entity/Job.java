@@ -1,19 +1,25 @@
 package com.thuan.hibernate.entity;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Jobs {
+public class Job {
 	@Id
-	@Column(name = "job_id", length = 10)
-	private String jobId;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "job_id")
+	private int jobId;
 
-	@Column(name = "job_title", length = 255, nullable = false, unique = true)
+	@Column(name = "job_title", length = 255, nullable = false)
 	private String jobTitle;
 
 	@Column(name = "min_salary", precision = 11, scale = 2)
@@ -25,19 +31,25 @@ public class Jobs {
 	@OneToOne(mappedBy = "job", cascade = CascadeType.ALL)
 	private JobDetails jobDetail;
 
-	public Jobs(String jobId, String jobTitle, double minSalary, double maxSalary) {
+	@OneToMany(mappedBy = "job", fetch = FetchType.LAZY)
+	private List<Employee> employees;
+
+	public Job() {
 		super();
-		this.jobId = jobId;
+	}
+
+	public Job(String jobTitle, double minSalary, double maxSalary) {
+		super();
 		this.jobTitle = jobTitle;
 		this.minSalary = minSalary;
 		this.maxSalary = maxSalary;
 	}
 
-	public String getJobId() {
+	public int getJobId() {
 		return jobId;
 	}
 
-	public void setJobId(String jobId) {
+	public void setJobId(int jobId) {
 		this.jobId = jobId;
 	}
 
@@ -71,6 +83,20 @@ public class Jobs {
 
 	public void setJobDetail(JobDetails jobDetail) {
 		this.jobDetail = jobDetail;
+	}
+
+	public List<Employee> getEmployees() {
+		return employees;
+	}
+
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
+	}
+
+	@Override
+	public String toString() {
+		return "Job [jobId=" + jobId + ", jobTitle=" + jobTitle + ", minSalary=" + minSalary + ", maxSalary="
+				+ maxSalary + ", jobDetail=" + jobDetail + ", employees=" + employees + "]";
 	}
 
 }

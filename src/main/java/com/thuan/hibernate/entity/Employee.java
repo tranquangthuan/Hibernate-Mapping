@@ -1,9 +1,12 @@
 package com.thuan.hibernate.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Employee {
@@ -16,8 +19,15 @@ public class Employee {
 	private byte age;
 	private int salary;
 	private String role;
-
 	private String address;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "job_id", referencedColumnName = "job_id")
+	private Job job;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "department_id", referencedColumnName = "id")
+	private Department department;
 
 	public Employee() {
 		super();
@@ -78,6 +88,22 @@ public class Employee {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public Job getJob() {
+		return job;
+	}
+
+	public void setJob(Job job) {
+		this.job = job;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
 
 	@Override

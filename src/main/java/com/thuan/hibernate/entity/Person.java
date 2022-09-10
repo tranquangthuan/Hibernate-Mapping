@@ -58,4 +58,11 @@ public class Person {
 		this.emai = emai;
 	}
 
+	public LocalDate getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(LocalDate birthDate) {
+		this.birthDate = birthDate;
+	}
 }
