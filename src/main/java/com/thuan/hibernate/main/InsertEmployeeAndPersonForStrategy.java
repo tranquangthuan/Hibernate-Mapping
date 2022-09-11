@@ -38,7 +38,6 @@ public class InsertEmployeeAndPersonForStrategy {
 		session.save(emp6);
 		t.commit();
 		System.out.println("successfully saved");
-		factory.close();
 		session.close();
 	}
 

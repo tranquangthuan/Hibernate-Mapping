@@ -13,7 +13,6 @@ import com.thuan.hibernate.utils.HibernateUtils;
 public class SelectEmployeeMain {
 
 	public static void main(String[] args) {
-		// selectEmpoyee(1);
 		selectDeparment(1);
 	}
 
@@ -27,17 +26,16 @@ public class SelectEmployeeMain {
 		System.out.println("Employee =============: Get Department name");
 		Department ed = em.getDepartment();
 		System.out.println(ed.getName());
-		
+
 		System.out.println("Employee =============: Get Job name");
 		Job job = em.getJob();
 		System.out.println(job);
-		
+
 		System.out.println("Employee =============: Get List Employee name");
 		List<Employee> employees = job.getEmployees();
 		System.out.println(employees.size());
 
 		session.close();
-		factory.close();
 	}
 
 	public static void selectDeparment(int departmentId) {
@@ -53,6 +51,5 @@ public class SelectEmployeeMain {
 			System.out.println(employee);
 		}
 		session.close();
-		factory.close();
 	}
 }

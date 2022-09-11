@@ -48,7 +48,6 @@ public class EmployeeDeparmentJobsMain {
 		t.commit();
 		System.out.println("successfully saved");
 
-		factory.close();
 		session.close();
 	}
 
