@@ -16,6 +16,7 @@
 			<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property> -->
 
 		<mapping class="com.thuan.hibernate.entity.Employee"></mapping>
+		<mapping class="com.thuan.hibernate.entity.Project"></mapping>
 		<mapping class="com.thuan.hibernate.entity.Department"></mapping>
 		<mapping class="com.thuan.hibernate.entity.Person"></mapping>
 		<mapping class="com.thuan.hibernate.entity.Job"></mapping>
