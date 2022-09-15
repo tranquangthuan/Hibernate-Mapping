@@ -15,7 +15,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class Job {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "job_id")
 	private int jobId;
 

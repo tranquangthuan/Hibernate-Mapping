@@ -24,10 +24,10 @@ public class JobAndJobDetailMain {
 		jobs.setJobDetail(details);
 
 		session.save(jobs);
+		session.save(details);
 		session.save(jobs2);
 
-		session.delete(jobs);
-		// session.save(details);
+		// session.delete(jobs);
 
 		t.commit();
 		System.out.println("successfully saved");

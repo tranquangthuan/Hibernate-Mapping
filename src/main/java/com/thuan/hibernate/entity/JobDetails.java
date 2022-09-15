@@ -13,7 +13,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class JobDetails {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "job_detail_id")
 	private int jobDetailId;
 
