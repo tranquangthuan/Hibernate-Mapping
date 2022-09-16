@@ -28,7 +28,7 @@ public class Job {
 	@Column(name = "max_salary", precision = 11, scale = 2)
 	private double maxSalary;
 
-	@OneToOne(mappedBy = "job", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "job", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private JobDetails jobDetail;
 
 	@OneToMany(mappedBy = "job", fetch = FetchType.LAZY)
@@ -96,7 +96,7 @@ public class Job {
 	@Override
 	public String toString() {
 		return "Job [jobId=" + jobId + ", jobTitle=" + jobTitle + ", minSalary=" + minSalary + ", maxSalary="
-				+ maxSalary + ", jobDetail=" + jobDetail + ", employees=" + employees + "]";
+				+ maxSalary + ", employees=" + employees + "]";
 	}
 
 }

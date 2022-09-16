@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,7 +24,7 @@ public class JobDetails {
 	@Column(name = "active_date")
 	private LocalDate activeDate;
 
-	@OneToOne()
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "job_id_from_detail", referencedColumnName = "job_id")
 	private Job job;
 
@@ -69,4 +70,11 @@ public class JobDetails {
 	public void setJob(Job job) {
 		this.job = job;
 	}
+
+	@Override
+	public String toString() {
+		return "JobDetails [jobDetailId=" + jobDetailId + ", jobDescription=" + jobDescription + ", activeDate="
+				+ activeDate + "]";
+	}
+
 }
