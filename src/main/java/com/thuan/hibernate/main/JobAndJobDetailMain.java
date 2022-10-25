@@ -24,11 +24,12 @@ public class JobAndJobDetailMain {
 
 		Job jobs = new Job("Job title 1", 100.0, 500.0);
 		Job jobs2 = new Job("Job title 2", 100.0, 500.0);
+
 		JobDetails details = new JobDetails("jobDescription", LocalDate.of(2022, 10, 10), jobs);
 		jobs.setJobDetail(details);
 
 		session.save(jobs);
-		session.save(details);
+		// session.save(details);
 		session.save(jobs2);
 
 		// session.delete(jobs);
