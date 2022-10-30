@@ -20,5 +20,9 @@
 		<mapping class="com.thuan.hibernate.entity.Job"></mapping>
 		<mapping class="com.thuan.hibernate.entity.JobDetails"></mapping>
 
+		<mapping class="com.thuan.hibernate.entity.Book"></mapping>
+		<mapping class="com.thuan.hibernate.entity.Publisher"></mapping>
+		<mapping class="com.thuan.hibernate.entity.PublisherBook"></mapping>
+
 	</session-factory>
 </hibernate-configuration>
